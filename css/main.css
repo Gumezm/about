@@ -115,10 +115,12 @@ input, select, textarea {
 		font-size: 16pt;
 	}
 
+		/* 中等屏幕：字号随视口线性缩放，避免内容被压缩得过小
+		   想整体更大 → 调高 1.95vw；想更小 → 调低 */
 		@media screen and (max-width: 1680px) {
 
 			html {
-				font-size: 12pt;
+				font-size: clamp(17px, 1.95vw, 21.3px);
 			}
 
 		}
@@ -1204,7 +1206,7 @@ input, select, textarea {
 		@media screen and (max-width: 1680px) {
 
 			#wrapper {
-				padding: 3rem 2rem;
+				padding: 2rem;
 			}
 
 		}
