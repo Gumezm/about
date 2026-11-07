@@ -216,7 +216,7 @@ input, select, textarea {
 	h1 {
 		font-family: 'Noto Sans Hans Black', "Source Sans Pro", sans-serif;
 		font-weight: 900;
-		font-size: 2.25rem;
+		font-size: 2.9rem;
 		line-height: 1.3;
 		letter-spacing: 0.5rem;
 	}
@@ -1345,7 +1345,7 @@ input, select, textarea {
 				}
 
 			#header .content h1 {
-				margin-bottom: 0.75rem;
+				margin-bottom: 2.25rem;
 			}
 
 			#header .content p {
