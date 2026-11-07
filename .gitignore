@@ -1,15 +1,39 @@
-# 系统 / 编辑器
-.DS_Store
-Thumbs.db
-desktop.ini
+# ============================================
+# .gitignore — Gumezm/www 静态站点
+# 说明：css/ js/ images/ 为本项目源码，绝不能忽略
+# ============================================
 
-# IDE
+# ---------- 操作系统 ----------
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.lnk
+
+# ---------- 编辑器 / IDE ----------
 .vscode/
 .idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
 
-# WorkBuddy 工作区数据（不属于站点源码）
+# ---------- 临时与备份文件 ----------
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+*.log
+
+# ---------- WorkBuddy 工作区数据 ----------
 .workbuddy/
 
-# 依赖与构建产物
+# ---------- 依赖与构建产物（预留，当前未使用）----------
 node_modules/
 dist/
+build/
+.cache/
