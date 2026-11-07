@@ -111,34 +111,19 @@ input, select, textarea {
 /* Type */
 
 	html {
-		font-size: 16pt;
+		/* 字号随视口等比缩放：宽度与高度共同约束。
+		   22px 上限 = 原设计值；3.8vh 保证内容(约 21.6rem)加内边距(4rem)不超过视口高度，
+		   这是「禁用上下滚动」不发生内容裁切的前提。
+		   想让内容整体更大 → 调高 2.1vw；想让矮窗口更安全 → 调低 3.8vh。 */
+		font-size: clamp(13px, min(2.1vw, 3.8vh), 22px);
 	}
 
-		/* 中等屏幕：字号随视口线性缩放，避免内容被压缩得过小
-		   想整体更大 → 调高 1.95vw；想更小 → 调低 */
-		@media screen and (max-width: 1680px) {
-
-			html {
-				font-size: clamp(17px, 1.95vw, 21.3px);
-			}
-
-		}
-
-		@media screen and (max-width: 736px) {
-
-			html {
-				font-size: 11pt;
-			}
-
-		}
-
-		@media screen and (max-width: 360px) {
-
-			html {
-				font-size: 10pt;
-			}
-
-		}
+	/* 禁用上下滚动：内容高度已由上方字号 clamp 控制在视口内，
+	   此处兜底裁切并阻止移动端橡皮筋回弹 */
+	html, body {
+		overflow: hidden;
+		overscroll-behavior: none;
+	}
 
 	body, input, select, textarea {
 		color: #ffffff;
@@ -1185,12 +1170,13 @@ input, select, textarea {
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		-moz-justify-content: space-between;
-		-webkit-justify-content: space-between;
-		-ms-justify-content: space-between;
-		justify-content: space-between;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
 		position: relative;
 		min-height: 100vh;
+		height: 100vh;
 		width: 100%;
 		padding: 4rem 2rem;
 		z-index: 3;
@@ -1529,6 +1515,9 @@ input, select, textarea {
 		position: relative;
 		max-width: 100%;
 		z-index: 3;
+		/* 站内已无 article，此容器若仍参与布局会挤偏 header 的垂直居中； */
+		/* 保留元素本身供 main.js 使用，但不占空间。 */
+		display: none;
 	}
 
 		#main article {
