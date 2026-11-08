@@ -1186,6 +1186,14 @@ input, select, textarea {
 		body.is-loading #bg:before {
 			background-color: #000000;
 		}
+		/* 竖版视口（移动设备竖屏）使用竖版背景图；横屏沿用横版图，避免过度裁切 */
+		@media screen and (orientation: portrait) {
+
+			#bg:after {
+				background-image: url("../images/background-m.webp");
+			}
+
+		}
 /* Wrapper */
 
 	#wrapper {
